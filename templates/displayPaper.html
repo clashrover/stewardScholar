@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+        <h1 >Steward <span style="background-color: #e5f502">Scholar</span></h1>
+        <br><br>  
+        
+        <p><b>Paper ID    : </b>{{paper[0][0]}}<p>
+        <p><b>Paper Title : </b>{{paper[0][1]}}<br> <br>
+        
+        {% for i in range(0,len) %}
+            <div class="row">
+                <div class="card" style="width: 50rem; margin-left: auto;
+                margin-right: auto">
+                    <!-- <img class="card-img-top" src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7647697/2018/11/22/2a69b8bb-9b0b-40b8-a0bf-53417246d8e01542881881200-Van-Heusen-Men-Shirts-7731542881881013-1.jpg -->
+                    <!-- " alt="Card image cap" style="width:min-content; height: min-content"> -->
+                    <div class="card-body">
+                        <h4 class="card-title">{{flags[i][0]}}</h4>
+                        <p class="card-text">
+                            <b>DESCRIPTION</b> {{flags[i][1]}} <br>
+                            <b>DISTANCE</b> {{flags[i][2]}} <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        {% endfor %}
+        
+    <!-- </div> -->
+{% endblock content %}

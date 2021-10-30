@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <h1> User Query </h1>
+    <h2>Filter Search</h2>
+    <form class="userQ" method="POST" action="{{url_for('getUserQuery')}}">  
+      <select class="ageForm" id="ageSelector" type="text" name="age" placeholder="Select A Age">
+        <option id = "age" value="None">age</option>
+        {% for a in ages %}
+          <OPTION id = {{a}} value={{a}}>{{a}}</option>
+        {% endfor %}
+      </select>
+      <select class="collegeForm" id="collegeSelector" type="text" name="college" placeholder="Select A college">
+        <option id = "college" value="None">college</option>
+        {% for c in colleges %}
+          <OPTION id = {{c}} value={{c}}>{{c}}</option>
+        {% endfor %}
+      </select>
+      <select class="orderForm" id="orderSelector" type="text" name="order" placeholder="Select A Order">
+        <option id = "order" value="None">order by</option>
+        {% for a in orders %}
+          <OPTION id = {{a}} value={{a}}>{{a}}</option>
+        {% endfor %}
+      </select>
+      <br><br>
+      <h2>Search by User ID</h2>
+      <input type="text" name="id" placeholder="user id" value = "None">
+      
+      <br><br>
+      <input class="btn btn-success" type="submit" value="Search">
+    </form>
+
+    
+{% endblock content %}

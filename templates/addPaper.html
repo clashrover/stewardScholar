@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 >Steward <span style="background-color: #e5f502">Scholar</span></h1>
+    <br><br>  
+
+    <h2> Add Paper </h2><br>
+    
+    <form class="addPaper" method="POST" action="{{url_for('getAddPaper')}}">  
+      
+        <h4>Product Id</h4>
+      <input type="number" name="id" placeholder="Paper ID" value = "">
+      <!-- if none product id then show error -->
+      <h4>Paper Title</h4>
+      <input type="text" name="name" placeholder="Paper Title" value = "">
+      
+      <br><br>
+      <input class="btn btn-success" type="submit" value="Go">
+    </form>
+
+    
+{% endblock content %}

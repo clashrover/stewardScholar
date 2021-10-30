@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block content %}
+      <h1 >Steward <span style="background-color: #e5f502">Scholar</span></h1>
+      
+      <p> Steward Scholar is a database website that maintains possible ethical issues with research papers.<br>
+      Database is built on the assumption that an ethical issue raised for some paper will have causal effect on <br>
+      linked research papers i.e the papers that cite the initial paper and so on.<br></p>
+      
+      <p>Currently in development phase. The website provide following functionalities<br>
+        <ul>
+          <li><a href="">Display Research Paper</a><br>
+            Search by ID. It will display information related to a research paper and flags associated with it<br></li>
+          <li><a href="">Add Research Paper</a><br>
+            Add a research paper to database<br></li>
+          <li><a href="">Add flag</a><br>
+            On display research paper page, user can add a flag, consequently all papers reachable from the current<br>
+          will get flagged with proper intesity.</li>
+          <li><a href="">Track Flag</a><br>
+            On display research paper page, user can click track flag button on some particular flag which will show the<br>
+          show one of the path from root research paper to current paper</li>
+                  
+        </ul>
+      </p>
+{% endblock content %}

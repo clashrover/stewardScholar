@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+        
+        {% for i in range(0,len) %}
+            <div class="row">
+                <div class="card" style="width: 50rem; margin-left: auto;
+                margin-right: auto">
+                    <!-- <img class="card-img-top" src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7647697/2018/11/22/2a69b8bb-9b0b-40b8-a0bf-53417246d8e01542881881200-Van-Heusen-Men-Shirts-7731542881881013-1.jpg -->
+                    <!-- " alt="Card image cap" style="width:min-content; height: min-content"> -->
+                    <div class="card-body">
+                        <h4 class="card-title">{{data[i][0]}}</h4>
+                        <p class="card-text">
+                            <b>CATEGORY</b> {{data[i][1]}} <br>
+
+                            <b>COLOR</b>  {{data[i][2]}} <br>
+                            
+                            <b>DESCRIPTION & COLOR</b>  {{data[i][3]}} <br> 
+                            
+                            <b>FABRIC</b> {{data[i][4]}} <br>
+                            
+                            <b>SIZE</b> {{data[i][6]}} <br>
+                            
+                            <b>PRICE</b> {{data[i][7]}} <br>
+                            
+                            <b>PRODUCT ID</b>  {{data[i][8]}} <br>
+                            
+                            <b>PRODUCT URL</b> {{data[i][9]}} <br>
+                            
+                            <b>USER</b>  {{data[i][10]}} <br>
+
+                            <b><a href="{{data[i][5]}}">IMAGE</a></b>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+        {% endfor %}
+        
+    <!-- </div> -->
+{% endblock content %}
