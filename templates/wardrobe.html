@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <h1> Wardrobe Search</h1>
+    <form class="wardrobeQ" method="POST" action="{{url_for('wardrobeQuery')}}">  
+      <h2>Search by Product ID</h2>
+      <input type="text" name="id" placeholder="product id" value = "None">
+      <br><br>
+      <select class="orderForm" id="orderSelector" type="text" name="order" placeholder="Select A Order">
+        <option id = "order" value="None">order by</option>
+        {% for a in orders %}
+          <OPTION id = {{a}} value={{a}}>{{a}}</option>
+        {% endfor %}
+      </select>
+      
+      <br><br>
+      <input class="btn btn-success" type="submit" value="Find All Wardrobes">
+    </form>
+
+    
+{% endblock content %}
