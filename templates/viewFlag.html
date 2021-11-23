@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+        <h1 >Steward <span style="background-color: #e5f502">Scholar</span></h1>
+        <br><br>  
+        <h3>Flag:</h3>
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{flag[1]}}</h4>
+                <p class="card-text">
+                    <b>DESCRIPTION</b> {{flag[3]}} <br>
+                    <b>DISTANCE</b> {{flag[2]}} <br>
+                    <b>By</b> {{flag[4]}} <br>
+                    <b><a href="{{url_for('trackFlag', fid = flag[0], super_id = flag[5])}}">Track Flag</a></b>
+                </p>
+            </div>
+        </div>
+        <br>
+        
+        <form class="addDebate" method="POST" action="{{url_for('addDebate', fid = flag[0])}}">  
+        <h4>Add Argument</h4>
+        <input type="text" name="email_addr" placeholder="@Email Address" value = ""><br><br>
+        <textarea rows = "2" cols = "40" name = "content" placeholder="Type Here.."></textarea><br>
+           
+        <br>
+        <input class="btn btn-success" type="submit" value="Go">
+        </form>
+
+        <br> <br>
+        <h4><u>DEBATES</u></h4>
+        <br>
+        {% for i in range(0,len) %}
+            <div class="row">
+                <div class="card" >
+                    <div class="card-body">
+                        <h4 class="card-title">{{debates[i][2]}}</h4>
+                        <p class="card-text">
+                            {{debates[i][3]}} <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+        
+    <!-- </div> -->
+{% endblock content %}

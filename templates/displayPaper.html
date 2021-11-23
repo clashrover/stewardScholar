@@ -4,24 +4,28 @@
         <br><br>  
         
         <p><b>Paper ID    : </b>{{paper[0][0]}}<p>
-        <p><b>Paper Title : </b>{{paper[0][1]}}<br> <br>
+        <p><b>Paper Title : </b>{{paper[0][1]}}</p>
+        <p><b>Paper Author: </b>{{paper[0][2]}}<br> <br>
+        
+        <a href="{{url_for('addFlag', pid = paper[0][0])}}"><b>Add a flag</b></a><br>
+        
+        <p><b><u>CURRENT FLAGS BELOW</u></b></p>
         
         {% for i in range(0,len) %}
             <div class="row">
-                <div class="card" style="width: 50rem; margin-left: auto;
-                margin-right: auto">
-                    <!-- <img class="card-img-top" src="https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7647697/2018/11/22/2a69b8bb-9b0b-40b8-a0bf-53417246d8e01542881881200-Van-Heusen-Men-Shirts-7731542881881013-1.jpg -->
-                    <!-- " alt="Card image cap" style="width:min-content; height: min-content"> -->
+                <div class="card" >
                     <div class="card-body">
-                        <h4 class="card-title">{{flags[i][0]}}</h4>
+                        <h4 class="card-title">{{flags[i][1]}}</h4>
                         <p class="card-text">
-                            <b>DESCRIPTION</b> {{flags[i][1]}} <br>
-                            <b>DISTANCE</b> {{flags[i][2]}} <br>
+                            <b>DESCRIPTION</b> {{flags[i][3]}} <br>
+                            <b>TYPE</b> {{flags[i][2]}} <br>
+                            <b><a href="{{url_for('viewFlag', id = flags[i][0],
+                                title = flags[i][1], type = flags[i][2], desc = flags[i][3], email = flags[i][4], super_id = flags[i][5])}}">View Flag</a></b>
                         </p>
                     </div>
                 </div>
             </div>
-            
+            <br>
         {% endfor %}
         
     <!-- </div> -->

@@ -12,7 +12,7 @@ conn = psycopg2.connect(host="localhost", database="sil", user="postgres", passw
 # cur.execute(query)
 
 # cur = conn.cursor()
-# query = "CREATE TABLE flags(id integer PRIMARY KEY, title text, type integer, description text, super_id integer);"
+# query = "CREATE TABLE flags(id integer PRIMARY KEY, title text, type integer, description text, email text, super_id integer);"
 # cur.execute(query)
 
 # cur = conn.cursor()
@@ -34,6 +34,15 @@ conn = psycopg2.connect(host="localhost", database="sil", user="postgres", passw
 # cur = conn.cursor()
 # query = "ALTER TABLE debates ADD CONSTRAINT id_deb_fk FOREIGN KEY (flag_id) REFERENCES flags (id) ON DELETE CASCADE;"
 # cur.execute(query)
+
+# cur = conn.cursor()
+# query = "CREATE TABLE flag_counter(counter integer);"
+# cur.execute(query)
+
+# cur = conn.cursor()
+# query = "INSERT INTO flag_counter VALUES (0);"
+# cur.execute(query)
+
 
 conn.commit()
 cur.close()

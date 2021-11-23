@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1 >Steward <span style="background-color: #e5f502">Scholar</span></h1>
+    <br><br>  
+
+    <h2> Add Flag </h2><br>
+    
+    <form class="addFlag" method="POST" action="{{url_for('getAddFlag', pid = pid)}}">  
+     
+    <h4>Flag Title</h4>
+    <input type="text" name="title" placeholder="Flag Title" value = "">
+    <h4>Description</h4>
+    <textarea rows = "5" cols = "40" name = "content" placeholder="Type Here.."></textarea><br>
+    <h4>Email</h4>
+    <input type="text" name="email" placeholder="Email" value = "">
+        
+      <br><br>
+      <input class="btn btn-success" type="submit" value="Go">
+    </form>
+
+    
+{% endblock content %}
