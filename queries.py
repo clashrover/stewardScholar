@@ -216,7 +216,25 @@ def fetch_neighbours(pid):
     cur=conn.cursor()
     # print(pid)
     ans = None # use of None (not "None") can be used to insert NULLs. @sagar possible?
-    SQL="SELECT id1 FROM citations WHERE id2 = {};".format(pid)
+    SQL="SELECT id1 FROM citations WHERE id2 = {} GROUP BY id1;".format(pid)
+    
+    try:
+        cur.execute(SQL)
+        ans = cur.fetchall()
+    except psycopg2.Error as e:
+        print(e.pgerror)
+        conn.rollback()
+    
+    cur.close()
+    conn.close()
+    return ans
+
+def fetch_source(fid):
+    conn=psycopg2.connect(CONNECTQUERY)
+    cur=conn.cursor()
+   
+    ans = None # use of None (not "None") can be used to insert NULLs. @sagar possible?
+    SQL="SELECT papers.id, papers.title, papers.authors FROM flags,papers, paper_flag_edge WHERE flags.id = {} AND paper_flag_edge.flag_id = {} AND papers.id = paper_flag_edge.paper_id GROUP BY papers.id, papers.title, papers.authors;".format(fid,fid)
     
     try:
         cur.execute(SQL)

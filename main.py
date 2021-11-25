@@ -84,8 +84,9 @@ def getAddFlag(pid):
         expanded.add(a[0])
         if(a[1]>max_dis):
             break
-
+        
         neighbours = fetch_neighbours(a[0])
+        print("A is :",a, "N are:",neighbours)
         if neighbours == None:
             return "No neighbours"
         for n in neighbours:
@@ -103,16 +104,25 @@ def getAddFlag(pid):
 @app.route("/viewFlag/<int:id>-<string:title>-<int:type>-<string:desc>-<string:email>-<int:super_id>")
 def viewFlag(id,title, type, desc, email, super_id):
     flag = [id,title,type,desc,email,super_id]
+    print(flag)
     debates = fetch_debates(id)
     # print(flag)
     # print(debates)
     return render_template("viewFlag.html", flag = flag, debates = debates, len=len(debates))
 
 
-@app.route("/trackFlag/<int:fid>-<int:super_id>")
-def trackFlag(fid):
+@app.route("/trackFlag/<int:sid>")
+def trackFlag(sid):
+    print(sid)
+    paper = fetch_source(sid)
+    if(paper==None or len(paper)==0):
+        return "Paper not found"
+    flags = fetch_flags(paper[0][0])
+    if flags == None:
+        flags =[]
     
-    return render_template("viewFlag.html", flag = flag, debates = debates, len=len(debates))
+    # print(flags)
+    return render_template("displayPaper.html",paper = paper, flags = flags, len = len(flags))
 
 
 

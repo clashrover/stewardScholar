@@ -10,7 +10,7 @@
                     <b>DESCRIPTION</b> {{flag[3]}} <br>
                     <b>DISTANCE</b> {{flag[2]}} <br>
                     <b>By</b> {{flag[4]}} <br>
-                    <b><a href="{{url_for('trackFlag', fid = flag[0], super_id = flag[5])}}">Track Flag</a></b>
+                    <b><a href="{{url_for('trackFlag', sid = flag[5])}}">View Source</a></b>
                 </p>
             </div>
         </div>
@@ -24,8 +24,9 @@
         <br>
         <input class="btn btn-success" type="submit" value="Go">
         </form>
-
-        <br> <br>
+        
+        <hr>
+        <br>
         <h4><u>DEBATES</u></h4>
         <br>
         {% for i in range(0,len) %}
